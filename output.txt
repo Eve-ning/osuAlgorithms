@@ -4,36 +4,4 @@ Skipped : 0,0,"wallhaven-116947.png",0,0
 Complete!
 Loading Timing Points: Complete!
 Loading Hit Objects: Complete!
-
-AudioFilename: audio.mp3
-AudioLeadIn: 0
-PreviewTime: 326875
-Countdown: 0
-SampleSet: SOFT
-StackLeniency: 0.7
-Mode: MANIA
-LetterboxInBreaks: 1
-SpecialStyle: 0
-WidescreenStoryboard: 1
-Bookmarks: 91790, 128990, 164990, 182990, 203390, 365390
-DistanceSpacing: 2
-BeatDivisor: 4
-GridSize: 16
-TimelineZoom: 1.9
-Title: Calamity Fortune
-TitleUnicode: Calamity Fortune
-Artist: LeaF
-ArtistUnicode: LeaF
-Creator: Evening
-Version: Nirvana VIP
-Source: 
-Tags: 
-BeatmapID: 1754199
-BeatmapSetID: 837840
-HPDrainRate: 7.5
-CircleSize: 7
-OverallDifficulty: 7
-ApproachRate: 5
-SliderMultiplier: 1.4
-SliderTickRate: 1
-Background: wallhaven-116947.png
+8798
