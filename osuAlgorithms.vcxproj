@@ -154,11 +154,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="OsuAlg.h" />
+    <ClInclude Include="alg\Density.h" />
+    <ClInclude Include="alg\General.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OsuAlg.cpp" />
+    <ClCompile Include="alg\Density.cpp" />
+    <ClCompile Include="alg\General.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -170,6 +172,11 @@
   <ItemGroup>
     <Text Include="map.txt" />
     <Text Include="output.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\osuParseSub\osuParseSub\osuParseSub.vcxproj">
+      <Project>{3d19fd12-dfaa-44be-850d-3a7a078d9b09}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,7 +18,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OsuAlg.h">
+    <ClInclude Include="alg\Density.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="alg\General.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,7 +32,10 @@
     <ClCompile Include="osuAlgorithms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OsuAlg.cpp">
+    <ClCompile Include="alg\Density.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="alg\General.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
