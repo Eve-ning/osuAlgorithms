@@ -172,6 +172,7 @@
   <ItemGroup>
     <Text Include="map.txt" />
     <Text Include="output.txt" />
+    <Text Include="MAPTEMPLATE.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\osuParseSub\osuParseSub\osuParseSub.vcxproj">

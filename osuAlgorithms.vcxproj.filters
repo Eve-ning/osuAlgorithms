@@ -42,5 +42,6 @@
   <ItemGroup>
     <Text Include="map.txt" />
     <Text Include="output.txt" />
+    <Text Include="MAPTEMPLATE.txt" />
   </ItemGroup>
 </Project>

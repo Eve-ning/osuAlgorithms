@@ -18,19 +18,19 @@ namespace General
 		int counter = 0;
 		auto list_sptr = list.sptr();
 
+		auto condition_excl = [&lowerBound, &upperBound](const auto &sptr) -> bool {
+			return ((sptr->offset() > lowerBound) && (sptr->offset() < upperBound));
+		};
+
+		auto condition_incl = [&lowerBound, &upperBound](const auto &sptr) -> bool {
+			return ((sptr->offset() >= lowerBound) && (sptr->offset() <= upperBound));
+		};
+
 		if (inclusive) {
-			for (const auto obj : list_sptr) {
-				if (obj->offset() >= lowerBound && obj->offset() <= upperBound) {
-					counter++;
-				}
-			}
+			counter = std::count_if(list_sptr.begin(), list_sptr.end(), condition_incl);
 		}
 		else {
-			for (const auto obj : list_sptr) {
-				if (obj->offset() > lowerBound && obj->offset() < upperBound) {
-					counter++;
-				}
-			}
+			counter = std::count_if(list_sptr.begin(), list_sptr.end(), condition_excl);
 		}
 		return counter;
 	}

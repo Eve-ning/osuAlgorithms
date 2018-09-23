@@ -18,6 +18,10 @@ namespace Density
 	template <typename OsuList>
 	std::vector<double> runningDensity(const OsuList &list, double range, double interval, bool inclusive = true, double start = 0) {
 
+		if (interval <= 0) {
+			throw new std::exception("Interval cannot be 0 or negative");
+		}
+
 		auto list_sptr = list.sptr();
 		std::vector<double> densityList = {};
 
