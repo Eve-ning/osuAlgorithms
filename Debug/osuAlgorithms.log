@@ -1,6 +1,3 @@
-﻿  pch.cpp
-  Density.cpp
-  General.cpp
-  osuAlgorithms.cpp
-  Generating Code...
+﻿  osuAlgorithms.cpp
+c:\users\user\source\repos\osualgorithms\osualgorithms\patternrecognition.h(147): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   osuAlgorithms.vcxproj -> C:\Users\user\source\repos\osuAlgorithms\Debug\osuAlgorithms.exe

@@ -156,12 +156,14 @@
   <ItemGroup>
     <ClInclude Include="alg\Density.h" />
     <ClInclude Include="alg\General.h" />
+    <ClInclude Include="PatternRecognition.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp" />
     <ClCompile Include="alg\General.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
+    <ClCompile Include="PatternRecognition.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

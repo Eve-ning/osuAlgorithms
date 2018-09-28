@@ -4,17 +4,18 @@
 // This helps measure density in the chart in various ways
 namespace Density
 {
-	// Counts the number of Objects within a range
+	// Counts the number of Objects within a range and divides it by the range
+	// Returns Notes/ms
 	template <typename OsuList>
 	double density(const OsuList &list, double lowerBound, double upperBound, bool inclusive = true) {
 		return General::count(list, lowerBound, upperBound, inclusive) / (upperBound - lowerBound);
 	}
 
-	// Might be slow if we keep calling count, will test
 	// Gets the list for running density
 	// Range: How large of the density search should be
 	// Interval: Distance to next search
 	// Start: Where should the search start
+	// Returns Notes/ms
 	template <typename OsuList>
 	std::vector<double> runningDensity(const OsuList &list, double range, double interval, bool inclusive = true, double start = 0) {
 
