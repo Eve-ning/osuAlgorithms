@@ -58,6 +58,13 @@ typedef std::vector<std::vector<int>> Pattern;
 //	bool m_yFlip;
 //};
 
+struct RecogProperties {
+	RecogProperties(std::vector<double> newVariance, int newColumn, double newOffset) : variance(newVariance), column(newColumn), offset(newOffset) {}
+
+	std::vector<double> variance;
+	int column;
+	double offset;
+};
 
 class PatternRecognition
 {
@@ -71,105 +78,22 @@ public:
 	// Pattern MUST
 	// Range is the +/- of the expected distance (We will return the variance of the expected distance)
 	// We return the variance, in ms in doubles
-	std::vector<std::vector<double>> run(Pattern pattern, double distance) {
-		std::vector<std::vector<double>> output = {};
-
-		for (size_t column = 0; column < m_data.size(); column++) {
-			for (double offset : m_data[column]) {
-				output.push_back(validatePattern(column, offset, pattern, distance));
-			}
-		}
-
-		return output;
-	}
+	std::vector<RecogProperties> run(Pattern pattern, double distance);
 
 
 private:
 
 	// Converts map to Vector[Column][Offset]
-	void convertMap(const HitObjectList_sptr &objList) {
-		/* old convert
-		
-		* We sort it so that we can tell which object will have similar offsets
-		* std::sort(objList.begin(), objList.end(), [](HitObject_sptr a, HitObject_sptr b) -> bool {
-		* 	return a->offset() < b->offset();
-		* });
-		* 
-		* // This holds the previous note offset, so we can tell if the following note has the same offset
-		* int buffer = -1;
-		* int indexCounter = -1;
-		* 
-		* for (int x = 0; x < objList.size(); x++) {
-		* 
-		* 	// If it matches buffer we push back into the same column
-		* 	if (objList[x]->offset() == buffer) {
-		* 		m_data[indexCounter].columnList.push_back(objList[x]->column());
-		* 	}
-		* 	else {
-		* 		// Else we push back a new OffsetData
-		* 		m_data.push_back(OffsetData(objList[x]->offset(), objList[x]->column(), m_keys));
-		* 
-		* 		// So that the if statement pushes to the correct index
-		* 		indexCounter++;
-		* 
-		* 		// Set our buffer
-		* 		buffer = objList[x]->offset();
-		* 	}
-		*}
-		*/
-		for (auto obj : objList) {
-			m_data[(int) obj->column() - 1].push_back(obj->offset());
-		}
-		return;
-	}
+	void convertMap(const HitObjectList_sptr &objList);
 
 	// Returns the results for checking the pattern, relative to the index
 	// Y Index refers to the offset index of m_data
 	// X Index refers to the column we are checking for
 	// Pattern is anchored on the bottom left
-	std::vector<double> validatePattern(int column, double offset, Pattern pattern, double distance) {
-		std::vector<double> output = {};
-
-		int findOffset = 0;
-
-		for (size_t relative_y = 0; relative_y < pattern.size(); relative_y++ ) {
-			for (auto relative_x : pattern[relative_y]) {
-
-				if (relative_x + relative_y == 0) {
-					continue;
-				}
-
-				if (column + relative_x > m_keys) {
-					continue;
-				}
-
-				// Push Back Variance
-				findOffset = checkInColumn(offset + (distance * (relative_y - 1)), distance, column + relative_x);
-
-				if (findOffset != -1) {
-					output.push_back(offset + distance - findOffset);
-				}
-			}
-		}
-
-		return output;
-	}
+	std::vector<double> patternThreshold(int column, double offset, Pattern pattern, double distance);
 
 	// Checks the minimum offset existing in the range
-	double checkInColumn(double min, double range, int column) {
-		for (auto offset : m_data[column]) {
-			if (offset > min + range) {
-				return -1;
-			}
-			else if (offset > min) {
-				return offset;
-			}
-			else {
-				continue;
-			}
-		}
-		return -1;
-	}
+	double checkInColumn(double min, double range, int column);
 
 
 	std::vector<std::vector<double>> m_data;
