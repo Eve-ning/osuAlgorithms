@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -12,6 +8,16 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Text Files">
+      <UniqueIdentifier>{803885e0-57c8-491e-920e-998782f96227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Excel">
+      <UniqueIdentifier>{213815c4-14ce-4ff4-a2ce-93700d462e15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -24,30 +30,44 @@
     <ClInclude Include="alg\General.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PatternRecognition.h">
+    <ClInclude Include="alg\PatternRecognition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="osuAlgorithms.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="alg\Density.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="alg\General.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PatternRecognition.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="alg\PatternRecognition.cpp">
+      <Filter>Header Files\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="map.txt" />
-    <Text Include="output.txt" />
-    <Text Include="MAPTEMPLATE.txt" />
+    <Text Include="map.txt">
+      <Filter>Text Files</Filter>
+    </Text>
+    <Text Include="output.txt">
+      <Filter>Text Files</Filter>
+    </Text>
+    <Text Include="MAPTEMPLATE.txt">
+      <Filter>Text Files</Filter>
+    </Text>
+    <Text Include="customOutput\PatternRecognition.txt">
+      <Filter>Text Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="excel\PatternParse.xlsx">
+      <Filter>Excel</Filter>
+    </None>
   </ItemGroup>
 </Project>

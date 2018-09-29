@@ -75,7 +75,6 @@ public:
 	}
 	
 	// Distance is how far from the current note to check
-	// Pattern MUST
 	// Range is the +/- of the expected distance (We will return the variance of the expected distance)
 	// We return the variance, in ms in doubles
 	std::vector<RecogProperties> run(Pattern pattern, double distance);

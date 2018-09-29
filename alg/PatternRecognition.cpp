@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "../pch.h"
 #include "PatternRecognition.h"
 
 // Distance is how far from the current note to check
