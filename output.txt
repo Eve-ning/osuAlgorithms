@@ -1,9 +1,7 @@
 Loading Map Settings: 
-Skipped : osu file format v13
-Skipped : 0,0,"HarlemShake2.jpg",0,0
-Skipped : 3,100,163,162,255
+Skipped : osu file format v14
+Skipped : 0,0,"wallhaven-116947.png",0,0
 Setting Beatmap Settings...
-Added Bookmark Tag.
 Complete!
 Loading Timing Points: Complete!
 Loading Hit Objects: Complete!

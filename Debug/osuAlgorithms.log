@@ -1,3 +1,5 @@
 ﻿  osuAlgorithms.cpp
-c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(28): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(29): warning C4018: '<': signed/unsigned mismatch
+c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(43): warning C4018: '<': signed/unsigned mismatch
   osuAlgorithms.vcxproj -> C:\Users\user\source\repos\osuAlgorithms\Debug\osuAlgorithms.exe
