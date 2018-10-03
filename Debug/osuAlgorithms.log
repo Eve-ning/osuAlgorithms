@@ -1,5 +1,2 @@
-﻿  osuAlgorithms.cpp
-c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(27): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\users\user\source\repos\osualgorithms\osualgorithms\osualgorithms.cpp(43): warning C4018: '<': signed/unsigned mismatch
+﻿  Printer.cpp
   osuAlgorithms.vcxproj -> C:\Users\user\source\repos\osuAlgorithms\Debug\osuAlgorithms.exe
