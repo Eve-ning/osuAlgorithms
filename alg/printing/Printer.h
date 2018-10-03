@@ -12,7 +12,7 @@ public:
 	static void DPC(const OsuMap &map);
 	static void Density(const OsuMap &map);
 
-	static void castDirectory(const OsuMap &map, const std::string &inputPath, const std::string &outputPath, void(*castFunc) (const OsuMap &map));
+	static void castDirectory(void(*castFunc) (const OsuMap &map), const std::string &inputPath = "Input", const std::string &outputPath = "Output");
 
 	static void changeOutput(const std::string &filePath) {
 		OUTPUT_PATH = filePath;

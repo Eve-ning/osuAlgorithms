@@ -25,8 +25,8 @@ void Printer::DPC(const OsuMap & map) {
 
 void Printer::Density(const OsuMap &map){
 
-		double range = 1500;
-		double interval = 1000;
+		double range = 10000;
+		double interval = 10000;
 
 		auto densityList = Density::runningDensity(map.hitObjectList(), range, interval, true, 0);
 
@@ -47,14 +47,22 @@ void Printer::Density(const OsuMap &map){
 		toCSV(data, __FUNCTION__, map, std::vector<std::string>({ "Offset", "Density" }));
 }
 
-void Printer::castDirectory(const OsuMap & map, const std::string & inputPath, const std::string & outputPath, void(*castFunc)(const OsuMap &map)) {
+void Printer::castDirectory(void(*castFunc)(const OsuMap &map), const std::string & inputPath, const std::string & outputPath) {
 
 	changeInput(inputPath);
 	changeOutput(outputPath);
 
-	for (auto &txt : std::filesystem::directory_iterator(INPUT_PATH)) {
-		OsuMap map = OsuMap(txt.path().string());
-		castFunc(map);
+	try {
+		for (auto &txt : std::filesystem::directory_iterator("Tests\\" + INPUT_PATH)) {
+			std::cout << "Loading: " << txt.path();
+
+			OsuMap map = OsuMap(txt.path().string());
+			castFunc(map);
+		}
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+		return;
 	}
 }
 
@@ -64,19 +72,22 @@ void Printer::toCSV(std::vector<std::vector<double>> input, std::string fileName
 	std::string artist = map.mapSettings().artist();
 	std::string title = map.mapSettings().title();
 	std::string creator = map.mapSettings().creator();
+	std::string version = map.mapSettings().version();
 
 	// We do this to prevent path problems
 	std::replace(artist.begin(), artist.end(), '/', '_');
 	std::replace(title.begin(), title.end(), '/', '_');
+	std::replace(version.begin(), version.end(), '/', '_');
 	std::replace(creator.begin(), creator.end(), '/', '_');
 	fileName = fileName.substr(9);
 
-	std::string outputPath = "Tests/" + OUTPUT_PATH + "/" + artist + " - " + title + " (" + creator + ")" + "(" + fileName + ").txt";
+	std::string outputPath = "Tests/" + OUTPUT_PATH + "/" + artist + " - " + title + " (" + creator + " - " + version + ")" + "(" + fileName + ").txt";
 
 	output.open(outputPath);
 
 	if (!output.is_open()) {
 		std::cout << "Failed to Open: " <<  outputPath << std::endl;
+		return;
 	}
 
 	// Generate Headers
