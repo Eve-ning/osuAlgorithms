@@ -15,15 +15,27 @@
     <Filter Include="Excel">
       <UniqueIdentifier>{213815c4-14ce-4ff4-a2ce-93700d462e15}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Source Files">
+    <Filter Include="Header Dependencies">
+      <UniqueIdentifier>{e3512539-2950-46d5-a683-1085a33f88f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{2d3ca321-fb18-415e-814d-81be5786787b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\main">
+      <UniqueIdentifier>{6d05948f-d32c-48ba-a269-2c2cfa6d6273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{9d919321-2500-4475-bfa1-9ee49cf926ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{3cda60b9-ba3d-4a0b-b790-91ab20de0604}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="alg\Density.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -33,28 +45,40 @@
     <ClInclude Include="alg\PatternRecognition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="alg\printing\Printer.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="dependencies\json.hpp">
+      <Filter>Header Dependencies</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Header Files\main</Filter>
+    </ClInclude>
+    <ClInclude Include="alg\osrjson\OSRJSONReader.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="alg\printing\MapPrinter.h">
+      <Filter>Header Files\IO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
-      <Filter>Header Files\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="osuAlgorithms.cpp">
-      <Filter>Header Files\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="alg\Density.cpp">
-      <Filter>Header Files\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="alg\General.cpp">
-      <Filter>Header Files\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="alg\PatternRecognition.cpp">
-      <Filter>Header Files\Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="alg\printing\Printer.cpp">
-      <Filter>Header Files\Source Files</Filter>
+    <ClCompile Include="osuAlgorithms.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="alg\osrjson\OSRJSONReader.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="alg\printing\MapPrinter.cpp">
+      <Filter>Source Files\IO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,9 +89,6 @@
       <Filter>Text Files</Filter>
     </Text>
     <Text Include="MAPTEMPLATE.txt">
-      <Filter>Text Files</Filter>
-    </Text>
-    <Text Include="customOutput\PatternRecognition.txt">
       <Filter>Text Files</Filter>
     </Text>
   </ItemGroup>

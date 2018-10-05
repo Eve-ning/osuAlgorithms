@@ -157,15 +157,18 @@
   <ItemGroup>
     <ClInclude Include="alg\Density.h" />
     <ClInclude Include="alg\General.h" />
+    <ClInclude Include="alg\osrjson\OSRJSONReader.h" />
     <ClInclude Include="alg\PatternRecognition.h" />
-    <ClInclude Include="alg\printing\Printer.h" />
+    <ClInclude Include="alg\printing\MapPrinter.h" />
+    <ClInclude Include="dependencies\json.hpp" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp" />
     <ClCompile Include="alg\General.cpp" />
+    <ClCompile Include="alg\osrjson\OSRJSONReader.cpp" />
     <ClCompile Include="alg\PatternRecognition.cpp" />
-    <ClCompile Include="alg\printing\Printer.cpp" />
+    <ClCompile Include="alg\printing\MapPrinter.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -175,7 +178,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="customOutput\PatternRecognition.txt" />
     <Text Include="map.txt" />
     <Text Include="output.txt" />
     <Text Include="MAPTEMPLATE.txt" />

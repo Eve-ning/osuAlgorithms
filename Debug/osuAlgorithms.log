@@ -1,2 +1,7 @@
-﻿  Printer.cpp
+﻿  osuAlgorithms.cpp
+osuParseSub.lib(HitObject.obj) : warning LNK4204: 'C:\Users\user\source\repos\osuAlgorithms\Debug\osuParseSub.pdb' is missing debugging information for referencing module; linking object as if no debug info
+osuParseSub.lib(MapSettings.obj) : warning LNK4204: 'C:\Users\user\source\repos\osuAlgorithms\Debug\osuParseSub.pdb' is missing debugging information for referencing module; linking object as if no debug info
+osuParseSub.lib(OsuMap.obj) : warning LNK4204: 'C:\Users\user\source\repos\osuAlgorithms\Debug\osuParseSub.pdb' is missing debugging information for referencing module; linking object as if no debug info
+osuParseSub.lib(TimingPoint.obj) : warning LNK4204: 'C:\Users\user\source\repos\osuAlgorithms\Debug\osuParseSub.pdb' is missing debugging information for referencing module; linking object as if no debug info
+osuParseSub.lib(pch.obj) : warning LNK4204: 'C:\Users\user\source\repos\osuAlgorithms\Debug\osuParseSub.pdb' is missing debugging information for referencing module; linking object as if no debug info
   osuAlgorithms.vcxproj -> C:\Users\user\source\repos\osuAlgorithms\Debug\osuAlgorithms.exe
