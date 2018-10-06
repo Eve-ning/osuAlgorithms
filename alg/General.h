@@ -70,5 +70,43 @@ namespace General
 		return moveBy(list, move);
 	}
 
+	template <typename Type>
+	void toCSV(const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> &data) {
+		std::ofstream output;
+		output.open(fileName);
+
+		if (!output.is_open()) {
+			std::cout << "Failed to Open: " << fileName << std::endl;
+			return;
+		}
+
+		// Generate Headers
+		for (size_t i = 0; i < headers.size(); i++) {
+			output << headers[i].c_str();
+			if (i < headers.size() - 1) {
+				output << ",";
+			}
+		}
+		output << std::endl; // Header endl
+
+		size_t commaCounter = 0;
+
+		// Print to output
+		for (auto row : data) {
+			commaCounter = 0;
+			for (auto cell : row) {
+				output << cell;
+
+				// Comma Counter is to prevent the last comma
+				if (commaCounter < row.size() - 1) {
+					output << ",";
+					commaCounter++;
+				}
+			}
+			output << std::endl;
+		}
+
+		output.close();
+	}
 };
 
