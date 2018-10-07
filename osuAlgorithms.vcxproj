@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -159,7 +159,8 @@
     <ClInclude Include="alg\General.h" />
     <ClInclude Include="alg\osrjson\OSRJSONReader.h" />
     <ClInclude Include="alg\PatternRecognition.h" />
-    <ClInclude Include="alg\printing\MapPrinter.h" />
+    <ClInclude Include="alg\printing\MapAnalyse.h" />
+    <ClInclude Include="alg\ReplayAnalysis.h" />
     <ClInclude Include="dependencies\json.hpp" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -168,7 +169,8 @@
     <ClCompile Include="alg\General.cpp" />
     <ClCompile Include="alg\osrjson\OSRJSONReader.cpp" />
     <ClCompile Include="alg\PatternRecognition.cpp" />
-    <ClCompile Include="alg\printing\MapPrinter.cpp" />
+    <ClCompile Include="alg\printing\MapAnalyse.cpp" />
+    <ClCompile Include="alg\ReplayAnalysis.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

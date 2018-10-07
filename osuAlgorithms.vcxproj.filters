@@ -34,6 +34,9 @@
     <Filter Include="Header Files\IO">
       <UniqueIdentifier>{3cda60b9-ba3d-4a0b-b790-91ab20de0604}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OSRJSONReader Output">
+      <UniqueIdentifier>{c3a9eb71-ea70-4f65-b60a-2956ddeda259}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alg\Density.h">
@@ -54,8 +57,11 @@
     <ClInclude Include="alg\osrjson\OSRJSONReader.h">
       <Filter>Header Files\IO</Filter>
     </ClInclude>
-    <ClInclude Include="alg\printing\MapPrinter.h">
-      <Filter>Header Files\IO</Filter>
+    <ClInclude Include="alg\printing\MapAnalyse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="alg\ReplayAnalysis.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -77,8 +83,11 @@
     <ClCompile Include="alg\osrjson\OSRJSONReader.cpp">
       <Filter>Source Files\IO</Filter>
     </ClCompile>
-    <ClCompile Include="alg\printing\MapPrinter.cpp">
-      <Filter>Source Files\IO</Filter>
+    <ClCompile Include="alg\printing\MapAnalyse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="alg\ReplayAnalysis.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <vector>
 #include "class/OsuMap.h"
+#include <fstream>
 
 namespace General
 {
@@ -70,13 +71,17 @@ namespace General
 		return moveBy(list, move);
 	}
 
+	// Converts data into a csv format
 	template <typename Type>
-	void toCSV(const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> &data) {
+	void toCSV(const std::string &folderName, const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> &data) {
 		std::ofstream output;
-		output.open(fileName);
+		std::string DEFAULT_IO_PATH = "../../../IO/";
+		std::string filePath = DEFAULT_IO_PATH + folderName + "/" + fileName + ".csv";
+
+		output.open(filePath);
 
 		if (!output.is_open()) {
-			std::cout << "Failed to Open: " << fileName << std::endl;
+			std::cout << "Failed to Open: " << filePath.c_str() << std::endl;
 			return;
 		}
 

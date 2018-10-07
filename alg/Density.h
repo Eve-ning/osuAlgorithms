@@ -58,7 +58,6 @@ namespace Density
 			start += interval;
 		}
 
-
 		return output;
 	}
 }

@@ -2,8 +2,6 @@
 #include "../../pch.h"
 #include "MapAnalyse.h"
 
-std::string MapAnalyse::OUTPUT_PATH = "Output";
-std::string MapAnalyse::INPUT_PATH = "Input";
 double MapAnalyse::DENSITY_RANGE = 10000;
 double MapAnalyse::DENSITY_INTERVAL = 10000;
 
@@ -24,7 +22,7 @@ void MapAnalyse::DPC(const OsuMap & map) {
 	}
 
 
-	toMapCSV(objectList, __FUNCTION__, map, std::vector<std::string>({ "Offset", "Column", "Delta" }));
+	toMapCSV(objectList, "/dpc_csv", map, std::vector<std::string>({ "Offset", "Column", "Delta" }));
 }
 
 // Prints Density
@@ -48,19 +46,16 @@ void MapAnalyse::Density(const OsuMap &map){
 			data.push_back(row);
 		}
 
-		toMapCSV(data, __FUNCTION__, map, std::vector<std::string>({ "Offset", "Density" }));
+		toMapCSV(data, "density_csv", map, std::vector<std::string>({ "Offset", "Density" }));
 }
 
 // Casts this class' functions over a default Input directory, to output to default Output dir
 
-void MapAnalyse::castDirectory(void(*castFunc)(const OsuMap &map), const std::string & inputPath, const std::string & outputPath) {
-
-	changeInput(inputPath);
-	changeOutput(outputPath);
+void MapAnalyse::castDirectory(void(*castFunc)(const OsuMap &map),const std::string &dir) {
 
 	try {
 		// txt will be the .osu or .txt file from Tests directory
-		for (auto &txt : std::filesystem::directory_iterator("Tests\\" + INPUT_PATH)) {
+		for (auto &txt : std::filesystem::directory_iterator(dir)) {
 			std::cout << "Loading: " << txt.path() << std::endl;
 
 			OsuMap map = OsuMap(txt.path().string());
@@ -76,7 +71,7 @@ void MapAnalyse::castDirectory(void(*castFunc)(const OsuMap &map), const std::st
 
 // Converts 2D Vectors to a csv table format
 
-void MapAnalyse::toMapCSV(std::vector<std::vector<double>> input, std::string fileName, const OsuMap & map, std::vector<std::string> headers) {
+void MapAnalyse::toMapCSV(std::vector<std::vector<double>> input, std::string folderName, const OsuMap & map, std::vector<std::string> headers) {
 	
 	std::string artist = map.mapSettings().artist();
 	std::string title = map.mapSettings().title();
@@ -89,10 +84,7 @@ void MapAnalyse::toMapCSV(std::vector<std::vector<double>> input, std::string fi
 	std::replace(version.begin(), version.end(), '/', '_');
 	std::replace(creator.begin(), creator.end(), '/', '_');
 
-	// FileName includes the Class so we need to trim out the (CLASS::)
-	fileName = fileName.substr(fileName.find(':') + 1);
+	std::string fileName = artist + " - " + title + " (" + creator + " - " + version + ")";
 
-	std::string outputPath = "Tests/" + OUTPUT_PATH + "/" + artist + " - " + title + " (" + creator + " - " + version + ")" + "(" + fileName + ").txt";
-
-	General::toCSV<double>(outputPath, headers, input);
+	General::toCSV<double>(folderName, fileName, headers, input);
 }
