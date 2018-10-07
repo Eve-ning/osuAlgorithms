@@ -3,7 +3,6 @@
 #include "../General.h"
 #include <filesystem>
 
-
 namespace OSRJSONReader
 {
 	struct KeyStatus {

@@ -4549,7 +4549,7 @@ class parser
     @throw parse_error.102 if to_unicode fails or surrogate error
     @throw parse_error.103 if to_unicode fails
     */
-    void parse(const bool strict, BasicJsonType& result)
+    void readFolder(const bool strict, BasicJsonType& result)
     {
         if (callback)
         {
@@ -17106,12 +17106,12 @@ class basic_json
 
     @since version 2.0.3 (contiguous containers)
     */
-    static basic_json parse(detail::input_adapter&& i,
+    static basic_json readFolder(detail::input_adapter&& i,
                             const parser_callback_t cb = nullptr,
                             const bool allow_exceptions = true)
     {
         basic_json result;
-        parser(i, cb, allow_exceptions).parse(true, result);
+        parser(i, cb, allow_exceptions).readFolder(true, result);
         return result;
     }
 
@@ -17242,12 +17242,12 @@ class basic_json
                  std::is_base_of<
                      std::random_access_iterator_tag,
                      typename std::iterator_traits<IteratorType>::iterator_category>::value, int>::type = 0>
-    static basic_json parse(IteratorType first, IteratorType last,
+    static basic_json readFolder(IteratorType first, IteratorType last,
                             const parser_callback_t cb = nullptr,
                             const bool allow_exceptions = true)
     {
         basic_json result;
-        parser(detail::input_adapter(first, last), cb, allow_exceptions).parse(true, result);
+        parser(detail::input_adapter(first, last), cb, allow_exceptions).readFolder(true, result);
         return result;
     }
 
@@ -17310,7 +17310,7 @@ class basic_json
     */
     friend std::istream& operator>>(std::istream& i, basic_json& j)
     {
-        parser(detail::input_adapter(i)).parse(false, j);
+        parser(detail::input_adapter(i)).readFolder(false, j);
         return i;
     }
 
@@ -18862,7 +18862,7 @@ if no parse error occurred.
 */
 inline nlohmann::json operator "" _json(const char* s, std::size_t n)
 {
-    return nlohmann::json::parse(s, s + n);
+    return nlohmann::json::readFolder(s, s + n);
 }
 
 /*!
