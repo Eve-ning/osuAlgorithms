@@ -1,13 +1,9 @@
 #include "pch.h"
 #include "../../pch.h"
-#include "MapAnalyse.h"
-
-double MapAnalyse::DENSITY_RANGE = 10000;
-double MapAnalyse::DENSITY_INTERVAL = 10000;
+#include "OSUParser.h"
 
 // Prints Delta Per Column
-
-void MapAnalyse::DPC(const OsuMap & map) {
+void OSUParser::DPC(const OsuMap & map) {
 	PatternRecognition newp = PatternRecognition(map.hitObjectList().sptr(), (int)map.mapSettings().circleSize());
 	auto dataList = newp.deltaPerColumn();
 	std::vector < std::vector<double>> objectList;
@@ -21,14 +17,13 @@ void MapAnalyse::DPC(const OsuMap & map) {
 		objectList.push_back(object);
 	}
 
-
 	toMapCSV(objectList, "/dpc_csv", map, std::vector<std::string>({ "Offset", "Column", "Delta" }));
 }
 
 // Prints Density
 // Change the range and Density via changeDensityRange & changeDensityInterval
 
-void MapAnalyse::Density(const OsuMap &map){
+void OSUParser::Density(const OsuMap &map){
 
 		auto densityList = Density::runningDensity(map.hitObjectList(), DENSITY_RANGE, DENSITY_INTERVAL, true, 0);
 
@@ -51,7 +46,7 @@ void MapAnalyse::Density(const OsuMap &map){
 
 // Casts this class' functions over a default Input directory, to output to default Output dir
 
-void MapAnalyse::castDirectory(void(*castFunc)(const OsuMap &map),const std::string &dir) {
+void OSUParser::castDirectory(void(*castFunc)(const OsuMap &map),const std::string &dir) {
 
 	try {
 		// txt will be the .osu or .txt file from Tests directory
@@ -71,7 +66,7 @@ void MapAnalyse::castDirectory(void(*castFunc)(const OsuMap &map),const std::str
 
 // Converts 2D Vectors to a csv table format
 
-void MapAnalyse::toMapCSV(std::vector<std::vector<double>> input, std::string folderName, const OsuMap & map, std::vector<std::string> headers) {
+void OSUParser::toMapCSV(std::vector<std::vector<double>> input, std::string folderName, const OsuMap & map, std::vector<std::string> headers) {
 	
 	std::string artist = map.mapSettings().artist();
 	std::string title = map.mapSettings().title();

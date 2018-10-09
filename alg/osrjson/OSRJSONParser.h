@@ -3,8 +3,9 @@
 #include "../General.h"
 #include <filesystem>
 
-namespace OSRJSONReader
+class OSRJSONParser
 {
+public:
 	struct KeyStatus {
 		KeyStatus() :
 			k1(false), k2(false), k3(false), k4(false), k5(false), k6(false), k7(false) {}
@@ -36,7 +37,30 @@ namespace OSRJSONReader
 		// bool k10 = false;
 	};
 
-	void readFolder(const std::string &pathToReplayFolder = "../../../IO/osr_json/");
-	void toOSRCSV(const std::string &fileName, std::vector<int> &timeframeList, const std::vector<KeyStatus> &keyStatusList);
+	struct OSRJSONData {
+		std::vector<int> timeframeList;
+		std::vector<KeyStatus> keyStatusList;
+	};
+
+	OSRJSONParser(const std::string &jsonFileName);
+	void toOSRCSV(const std::string &fileName);
 	
+	OSRJSONData jsonData() const {
+		return m_jsonData;
+	}
+
+	// Get default directory for json files
+	std::string jsonDir() const {
+		return m_jsonDir;
+	}
+
+	// Change default directory for json files
+	void setJsonDir(const std::string &jsonDir) {
+		m_jsonDir = jsonDir;
+	}
+
+private:
+
+	std::string m_jsonDir = "../../../IO/osr_json/";
+	OSRJSONData m_jsonData;
 };

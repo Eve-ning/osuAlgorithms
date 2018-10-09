@@ -5,10 +5,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Text Files">
       <UniqueIdentifier>{803885e0-57c8-491e-920e-998782f96227}</UniqueIdentifier>
     </Filter>
@@ -33,9 +29,6 @@
     </Filter>
     <Filter Include="Header Files\IO">
       <UniqueIdentifier>{3cda60b9-ba3d-4a0b-b790-91ab20de0604}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OSRJSONReader Output">
-      <UniqueIdentifier>{c3a9eb71-ea70-4f65-b60a-2956ddeda259}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
