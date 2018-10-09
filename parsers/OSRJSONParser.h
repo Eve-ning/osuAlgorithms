@@ -1,6 +1,6 @@
 #pragma once
 #include <fstream>
-#include "../General.h"
+#include "../alg/General.h"
 #include <filesystem>
 
 class OSRJSONParser
@@ -38,11 +38,23 @@ public:
 	};
 
 	struct OSRJSONData {
+		// Reads Data from File Path
+		OSRJSONData(const std::string &filePath);
+
+		// Construct from values
+		OSRJSONData(std::vector<int> newTimeframeList, std::vector<KeyStatus> newKeyStatusList)
+			: timeframeList(newTimeframeList), keyStatusList(newKeyStatusList){}
+
 		std::vector<int> timeframeList;
 		std::vector<KeyStatus> keyStatusList;
 	};
 
-	OSRJSONParser(const std::string &jsonFileName);
+	// Read a JSON from the default dir, specified in m_jsonDir
+	OSRJSONParser(const std::string &jsonFileName) : m_jsonData(OSRJSONData(m_jsonDir + jsonFileName)) {}
+
+	// Read a JSON from given data in OSRJSONData Format
+	OSRJSONParser(const OSRJSONData &jsonData) : m_jsonData(jsonData) {}
+
 	void toOSRCSV(const std::string &fileName);
 	
 	OSRJSONData jsonData() const {

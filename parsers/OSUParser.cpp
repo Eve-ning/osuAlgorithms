@@ -1,12 +1,12 @@
 #include "pch.h"
-#include "../../pch.h"
+#include "../pch.h"
 #include "OSUParser.h"
 
 // Prints Delta Per Column
-void OSUParser::DPC(const OsuMap & map) {
-	PatternRecognition newp = PatternRecognition(map.hitObjectList().sptr(), (int)map.mapSettings().circleSize());
+void OSUParser::DPC() {
+	PatternRecognition newp = PatternRecognition(m_mapData.hitObjectList().sptr(), (int)m_mapData.mapSettings().circleSize());
 	auto dataList = newp.deltaPerColumn();
-	std::vector < std::vector<double>> objectList;
+	std::vector <std::vector<double>> objectList;
 	std::vector<double> object;
 
 	for (auto data : dataList) {
@@ -17,15 +17,15 @@ void OSUParser::DPC(const OsuMap & map) {
 		objectList.push_back(object);
 	}
 
-	toMapCSV(objectList, "/dpc_csv", map, std::vector<std::string>({ "Offset", "Column", "Delta" }));
+	toMapCSV(objectList, "/dpc_csv", std::vector<std::string>({ "Offset", "Column", "Delta" }));
 }
 
 // Prints Density
 // Change the range and Density via changeDensityRange & changeDensityInterval
 
-void OSUParser::Density(const OsuMap &map){
+void OSUParser::Density(){
 
-		auto densityList = Density::runningDensity(map.hitObjectList(), DENSITY_RANGE, DENSITY_INTERVAL, true, 0);
+		auto densityList = Density::runningDensity(m_mapData.hitObjectList(), DENSITY_RANGE, DENSITY_INTERVAL, true, 0);
 
 		int at = 0;
 
@@ -41,16 +41,16 @@ void OSUParser::Density(const OsuMap &map){
 			data.push_back(row);
 		}
 
-		toMapCSV(data, "density_csv", map, std::vector<std::string>({ "Offset", "Density" }));
+		toMapCSV(data, "density_csv", std::vector<std::string>({ "Offset", "Density" }));
 }
 
 // Casts this class' functions over a default Input directory, to output to default Output dir
 
-void OSUParser::castDirectory(void(*castFunc)(const OsuMap &map),const std::string &dir) {
+void OSUParser::castDirectory(void(*castFunc)(const OsuMap &map)) {
 
 	try {
 		// txt will be the .osu or .txt file from Tests directory
-		for (auto &txt : std::filesystem::directory_iterator(dir)) {
+		for (auto &txt : std::filesystem::directory_iterator(m_osuDir)) {
 			std::cout << "Loading: " << txt.path() << std::endl;
 
 			OsuMap map = OsuMap(txt.path().string());
@@ -64,14 +64,13 @@ void OSUParser::castDirectory(void(*castFunc)(const OsuMap &map),const std::stri
 	}
 }
 
-// Converts 2D Vectors to a csv table format
-
-void OSUParser::toMapCSV(std::vector<std::vector<double>> input, std::string folderName, const OsuMap & map, std::vector<std::string> headers) {
+// Converts Map to CSV
+void OSUParser::toMapCSV(std::vector<std::vector<double>> input, std::string folderName, std::vector<std::string> headers) {
 	
-	std::string artist = map.mapSettings().artist();
-	std::string title = map.mapSettings().title();
-	std::string creator = map.mapSettings().creator();
-	std::string version = map.mapSettings().version();
+	std::string artist = m_mapData.mapSettings().artist();
+	std::string title = m_mapData.mapSettings().title();
+	std::string creator = m_mapData.mapSettings().creator();
+	std::string version = m_mapData.mapSettings().version();
 
 	// We do this to prevent path problems
 	std::replace(artist.begin(), artist.end(), '/', '_');
