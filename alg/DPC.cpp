@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "../pch.h"
-#include "PatternRecognition.h"
+#include "DPC.h"
 
 
 // Converts map to Vector[Column][Offset]
 
-void PatternRecognition::read(const HitObjectList_sptr & objList) {
+void DPC::read(const HitObjectList_sptr & objList) {
 
 	// Finds pushes offsets according to its column
 	for (auto obj : objList) {
@@ -19,7 +19,7 @@ void PatternRecognition::read(const HitObjectList_sptr & objList) {
 	return;
 }
 
-std::vector<PatternRecognition::DeltaData> PatternRecognition::deltaPerColumn()
+std::vector<DPC::DeltaData> DPC::deltaPerColumn()
 {
 	std::vector<DeltaData> output;
 
@@ -45,7 +45,7 @@ std::vector<PatternRecognition::DeltaData> PatternRecognition::deltaPerColumn()
 // Returns -1 on fail
 // !! IMPORTANT DEFAULT THRESHOLD FOR TESTING ONLY
 
-double PatternRecognition::matchOffset(double min, int column, double threshold) {
+double DPC::matchOffset(double min, int column, double threshold) {
 	for (auto offset : m_dataAsVector[column]) {
 		if (offset > min + threshold) {
 			return -1;

@@ -73,7 +73,8 @@ namespace General
 
 	// Converts data into a csv format
 	template <typename Type>
-	void toCSV(const std::string &folderName, const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> &data) {
+	void toCSV(const std::string &folderName, const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> data) {
+
 		std::ofstream output;
 		std::string DEFAULT_IO_PATH = "../../../IO/";
 		std::string filePath = DEFAULT_IO_PATH + folderName + "/" + fileName + ".csv";
@@ -86,12 +87,7 @@ namespace General
 		}
 
 		// Generate Headers
-		for (size_t i = 0; i < headers.size(); i++) {
-			output << headers[i].c_str();
-			if (i < headers.size() - 1) {
-				output << ",";
-			}
-		}
+		output << makeCSVHeader(headers);
 		output << std::endl; // Header endl
 
 		size_t commaCounter = 0;
@@ -113,5 +109,18 @@ namespace General
 
 		output.close();
 	}
+
+	// Concatenates vector to a string with a 1-char delimeter
+	std::string makeCSVHeader(std::vector<std::string> headers, std::string delimeter = ",") {
+		std::string output = {};
+		for (auto header : headers) {
+			output.append(header);
+			output.append(delimeter);
+		}
+
+		// Remove last comma
+		output.pop_back();
+	}
+
 };
 

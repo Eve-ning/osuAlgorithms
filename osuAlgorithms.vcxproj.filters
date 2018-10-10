@@ -47,14 +47,14 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files\main</Filter>
     </ClInclude>
-    <ClInclude Include="alg\osrjson\OSRJSONReader.h">
-      <Filter>Header Files\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="alg\printing\MapAnalyse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="alg\ReplayAnalysis.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parsers\OSUParser.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="parsers\OSRJSONParser.h">
+      <Filter>Header Files\IO</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,14 +73,14 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files\main</Filter>
     </ClCompile>
-    <ClCompile Include="alg\osrjson\OSRJSONReader.cpp">
-      <Filter>Source Files\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="alg\printing\MapAnalyse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="alg\ReplayAnalysis.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parsers\OSRJSONParser.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="parsers\OSUParser.cpp">
+      <Filter>Source Files\IO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

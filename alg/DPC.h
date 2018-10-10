@@ -1,31 +1,30 @@
 #pragma once
 
-class PatternRecognition
+class DPC
 {
 public:
 
-	struct DeltaData {
+	struct DPCData {
 
-		DeltaData(int newColumn, double newdelta, double newOffset) : column(newColumn), delta(newdelta), offset(newOffset) {}
+		DPCData(int newColumn, double newdelta, double newOffset) : column(newColumn), delta(newdelta), offset(newOffset) {}
 
 		int column;
 		double delta;
 		double offset;
 	};
 
-	PatternRecognition(const HitObjectList_sptr &objList, int keys) : m_keys(keys) {
+	DPC(const HitObjectList_sptr &objList, int keys) : m_keys(keys) {
 		for (int k = 0; k < keys; k++) { m_dataAsVector.push_back({}); }
 		read(objList);
 	}
 
 	// Calculates the time between pressing a note again in the same column
-	std::vector<DeltaData> deltaPerColumn();
+	std::vector<DPCData> deltaPerColumn();
 
 private:
 
 	// Converts map to Vector[Column][Offset]
 	void read(const HitObjectList_sptr &objList);
-
 	// Checks the minimum offset existing in the range
 	double matchOffset(double min, int column, double threshold = 10000);
 

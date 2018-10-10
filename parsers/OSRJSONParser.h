@@ -36,7 +36,6 @@ public:
 		// bool k9 = false;
 		// bool k10 = false;
 	};
-
 	struct OSRJSONData {
 		// Reads Data from File Path
 		OSRJSONData(const std::string &filePath);

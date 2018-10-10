@@ -157,21 +157,21 @@
   <ItemGroup>
     <ClInclude Include="alg\Density.h" />
     <ClInclude Include="alg\General.h" />
-    <ClInclude Include="alg\osrjson\OSRJSONReader.h" />
     <ClInclude Include="alg\PatternRecognition.h" />
-    <ClInclude Include="alg\printing\MapAnalyse.h" />
     <ClInclude Include="alg\ReplayAnalysis.h" />
     <ClInclude Include="dependencies\json.hpp" />
+    <ClInclude Include="parsers\OSRJSONParser.h" />
+    <ClInclude Include="parsers\OSUParser.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp" />
     <ClCompile Include="alg\General.cpp" />
-    <ClCompile Include="alg\osrjson\OSRJSONReader.cpp" />
     <ClCompile Include="alg\PatternRecognition.cpp" />
-    <ClCompile Include="alg\printing\MapAnalyse.cpp" />
     <ClCompile Include="alg\ReplayAnalysis.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
+    <ClCompile Include="parsers\OSRJSONParser.cpp" />
+    <ClCompile Include="parsers\OSUParser.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
