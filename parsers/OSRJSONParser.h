@@ -1,7 +1,7 @@
 #pragma once
 #include <fstream>
-#include "../alg/General.h"
 #include <filesystem>
+
 
 class OSRJSONParser
 {
@@ -72,6 +72,6 @@ public:
 
 private:
 
-	std::string m_jsonDir = "../../../IO/osr_json/";
+	std::string m_jsonDir;
 	OSRJSONData m_jsonData;
 };

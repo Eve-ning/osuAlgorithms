@@ -19,22 +19,20 @@ void DPC::read(const HitObjectList_sptr & objList) {
 	return;
 }
 
-std::vector<DPC::DeltaData> DPC::deltaPerColumn()
+std::vector<DPC::DPCData> DPC::deltaPerColumn()
 {
-	std::vector<DeltaData> output;
+	std::vector<DPCData> output;
 
 	double offset = 0;
 	double nextOffset = 0;
 
-	for (int column = 0; column < m_dataAsVector.size(); column++) {
-
-
-		for (int offsetIndex = 0; offsetIndex < m_dataAsVector[column].size() - 1; offsetIndex++) {
+	for (size_t column = 0; column < m_dataAsVector.size(); column++) {
+		for (size_t offsetIndex = 0; offsetIndex < m_dataAsVector[column].size() - 1; offsetIndex++) {
 
 			offset = m_dataAsVector[column][offsetIndex];
 			nextOffset = m_dataAsVector[column][offsetIndex + 1]; // outOfIndex circumvented via size() - 1
 
-			output.push_back(DeltaData(column, nextOffset - offset, offset));
+			output.push_back(DPCData(column, nextOffset - offset, offset));
 		}
 	}
 

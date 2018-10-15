@@ -1,5 +1,6 @@
-//#include "pch.h"
-//#include "../pch.h"
+#include "pch.h"
+#include "../pch.h"
+
 //#include "OSUParser.h"
 //
 //// Prints Delta Per Column

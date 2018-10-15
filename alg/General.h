@@ -71,6 +71,9 @@ namespace General
 		return moveBy(list, move);
 	}
 
+	// Concatenates vector to a string with a 1-char delimeter
+	std::string makeCSVHeader(std::vector<std::string> headers, std::string delimeter = ",");
+
 	// Converts data into a csv format
 	template <typename Type>
 	void toCSV(const std::string &folderName, const std::string &fileName, const std::vector<std::string> &headers, const std::vector<std::vector<Type>> data) {
@@ -87,7 +90,7 @@ namespace General
 		}
 
 		// Generate Headers
-		output << makeCSVHeader(headers);
+		output << makeCSVHeader(headers).c_str();
 		output << std::endl; // Header endl
 
 		size_t commaCounter = 0;
@@ -110,17 +113,6 @@ namespace General
 		output.close();
 	}
 
-	// Concatenates vector to a string with a 1-char delimeter
-	std::string makeCSVHeader(std::vector<std::string> headers, std::string delimeter = ",") {
-		std::string output = {};
-		for (auto header : headers) {
-			output.append(header);
-			output.append(delimeter);
-		}
-
-		// Remove last comma
-		output.pop_back();
-	}
 
 };
 

@@ -38,9 +38,6 @@
     <ClInclude Include="alg\General.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="alg\PatternRecognition.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dependencies\json.hpp">
       <Filter>Header Dependencies</Filter>
     </ClInclude>
@@ -56,15 +53,15 @@
     <ClInclude Include="parsers\OSRJSONParser.h">
       <Filter>Header Files\IO</Filter>
     </ClInclude>
+    <ClInclude Include="alg\DPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="alg\General.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="alg\PatternRecognition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="osuAlgorithms.cpp">
@@ -81,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="parsers\OSUParser.cpp">
       <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="alg\DPC.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

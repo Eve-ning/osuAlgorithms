@@ -43,9 +43,10 @@ namespace Density
 		}
 
 		double density;
+		double maxOffset = *std::max_element(offsetList.begin(), offsetList.end());
 		
 		// If the start isn't at the end
-		while (start < *std::max_element(offsetList.begin(), offsetList.end())) {
+		while (start < maxOffset) {
 
 			// Calculate density
 			density = General::count(list, start, start + range, inclusive) / (range);

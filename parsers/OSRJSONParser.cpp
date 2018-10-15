@@ -1,4 +1,5 @@
 #include "../dependencies/json.hpp"
+#include "../alg/General.h"
 #include "pch.h"
 #include "OSRJSONParser.h"
 

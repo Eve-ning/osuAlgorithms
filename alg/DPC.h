@@ -25,6 +25,7 @@ private:
 
 	// Converts map to Vector[Column][Offset]
 	void read(const HitObjectList_sptr &objList);
+
 	// Checks the minimum offset existing in the range
 	double matchOffset(double min, int column, double threshold = 10000);
 

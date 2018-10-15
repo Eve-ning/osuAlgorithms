@@ -157,7 +157,7 @@
   <ItemGroup>
     <ClInclude Include="alg\Density.h" />
     <ClInclude Include="alg\General.h" />
-    <ClInclude Include="alg\PatternRecognition.h" />
+    <ClInclude Include="alg\DPC.h" />
     <ClInclude Include="alg\ReplayAnalysis.h" />
     <ClInclude Include="dependencies\json.hpp" />
     <ClInclude Include="parsers\OSRJSONParser.h" />
@@ -167,7 +167,7 @@
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp" />
     <ClCompile Include="alg\General.cpp" />
-    <ClCompile Include="alg\PatternRecognition.cpp" />
+    <ClCompile Include="alg\DPC.cpp" />
     <ClCompile Include="alg\ReplayAnalysis.cpp" />
     <ClCompile Include="osuAlgorithms.cpp" />
     <ClCompile Include="parsers\OSRJSONParser.cpp" />
