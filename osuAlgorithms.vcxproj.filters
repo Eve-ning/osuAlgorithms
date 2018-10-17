@@ -30,6 +30,9 @@
     <Filter Include="Header Files\IO">
       <UniqueIdentifier>{3cda60b9-ba3d-4a0b-b790-91ab20de0604}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{6f7d6537-2e42-4b3f-9a2b-7ebd1a72b2eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alg\Density.h">
@@ -56,6 +59,9 @@
     <ClInclude Include="alg\DPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="tests\Tests.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="alg\Density.cpp">
@@ -81,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="alg\DPC.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\Tests.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

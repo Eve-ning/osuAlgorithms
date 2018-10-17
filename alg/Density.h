@@ -7,7 +7,7 @@ namespace Density
 	// Counts the number of Objects within a range and divides it by the range
 	// Returns Notes/ms
 	template <typename OsuList>
-	double Density(const OsuList &list, double lowerBound, double upperBound, bool inclusive = true) {
+	double density(const OsuList &list, double lowerBound, double upperBound, bool inclusive = true) {
 		return General::count(list, lowerBound, upperBound, inclusive) / (upperBound - lowerBound);
 	}
 
